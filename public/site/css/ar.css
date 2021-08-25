@@ -1,0 +1,135 @@
+body {
+    direction: rtl;
+    text-align: right;
+}
+
+input{
+    text-align: right;
+}
+
+.search button{
+    left: 0px;
+}
+
+.selector i{
+    left: 15px;
+}
+
+#nav-icon3 {
+    float: left;
+}
+
+.setComment{
+    left: 10px;
+}
+
+.keyCode {
+    left: 0px;
+}
+
+.links_page ul li a {
+    border-left: 1px solid #DDD;
+}
+
+.titleIndex {
+    border-right: 5px solid #f3a640;
+}
+
+.up_filter ul li a .far{
+    left: 10px;
+}
+
+.profile_tab_e3lan .nav-tabs .nav-link.active {
+    border-right: 5px solid #f3a640;
+}
+
+.commission ul li:before {
+    right: -15px;
+}
+
+.block_click{
+    text-align: left;
+}
+
+.head_select {
+    right: 9px;
+}
+
+.form_input span:first-child {
+    right: 5px;
+}
+
+.filter_section ul li {
+    border-left: 1px solid #DDD;
+}
+
+.form_input span:last-child {
+    left: 5px;
+}
+
+.form_label .float_label {
+    right: 5px;
+}
+
+.overlay{
+    left: 0;
+    transform: translateX(-100%);
+}
+
+.profile_tab_e3lan .Over_Act {
+    right: 20px;
+}
+
+.sentPhone{
+    left: 20px;
+}
+
+.remove{
+    left: -15px;
+}
+
+.image_block {
+    right: -45px;
+}
+
+/*.massage_block {*/
+/*    padding-right: 55px;*/
+/*}*/
+
+.linksToolsCate ul li a {
+    padding-right: 35px;
+}
+
+.opLeft{
+    text-align: left;
+}
+
+.group_chat {
+    border-left: 1px solid #DDD;
+}
+
+
+/* Media Screen */
+
+@media screen and (max-width: 990px){
+
+
+}
+
+@media screen and (max-width: 990px) {
+
+    .down_head{
+        right: 0;
+        transform: translateX(100%);
+    }
+
+    .down_head ul li {
+        text-align: right;
+    }
+
+    .bell span {
+        left: -8px;
+    }
+
+
+}
