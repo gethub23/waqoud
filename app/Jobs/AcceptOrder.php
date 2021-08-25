@@ -26,6 +26,7 @@ class AcceptOrder implements ShouldQueue
     {
         $this->data = [
             'sender'        => auth()->id()    ,
+            'sender_type'   => 'user'    ,
             'title_ar'      => 'قبول طلب ملئ الوقود'    ,
             'title_en'      => 'fuel fill request',
             'message_ar'    => 'لقد قام العميل ' . $order->user->name . ' بقبول طلب ملئ الوقود بسعر ' .$order->total_price,

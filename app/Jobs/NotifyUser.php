@@ -26,9 +26,8 @@ class NotifyUser implements ShouldQueue
     public function __construct($users,$request)
     {
         $this->data = [
-            'sender'        => auth()->id(),
-            'sender_name'   => auth()->user()->name,
-            'sender_avatar' => auth()->user()->avatar,
+            'sender'        => null,
+            'sender_type'   => 'user'    ,
             'title_ar'      => 'تنبيه اداري',
             'title_en'      => 'Administrative Notify',
             'message_ar'    => $request->message_ar ? $request->message_ar : $request->message_en ,

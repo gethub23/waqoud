@@ -82,6 +82,12 @@ Route::group(['prefix'                  => 'v1'  , 'namespace' => 'Api\V1']  , f
             Route::get ('fuels'              ,'FuelController@fuels'                            );
             // orders  
             Route::get ('orders'             ,'OrderController@orders'                          );
+            // Notifications  
+            Route::get ('notifications'      ,'UserController@notifications'                    );
+            // count Notifications  
+            Route::get ('count-notifications','UserController@countNotifications'               );
+            // count Notifications  
+            Route::post('delete-notifications','UserController@deleteNotifications'             );
 
             // must have subscribe and charge in app middleware
             Route::group(['middleware'               => ['SubscibeCredit']]             , function (){
@@ -105,6 +111,12 @@ Route::group(['prefix'                  => 'v1'  , 'namespace' => 'Api\V1']  , f
                 Route::get('user-data/{id}'      ,'userController@userData'                          );
                 // send order request to user  
                 Route::post('new-order-request'  ,'OrderController@newOrder'                         );
+                // worker Notifications  
+                Route::get ('worker/notifications'      ,'WorkerController@notifications'                    );
+                // worker count Notifications  
+                Route::get ('worker/count-notifications' ,'WorkerController@countNotifications'               );
+                // worker count Notifications  
+                Route::post('worker/delete-notifications','WorkerController@deleteNotifications'             );
             });
         });
 

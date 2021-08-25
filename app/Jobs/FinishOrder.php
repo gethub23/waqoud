@@ -26,6 +26,7 @@ class FinishOrder implements ShouldQueue
     {
         $this->data = [
             'sender'        => auth()->id()    ,
+            'sender_type'   => 'user'    ,
             'title_ar'      => 'انهاء طلب'    ,
             'title_en'      => 'Finish Request',
             'message_ar'    => 'لقد قام العميل ' . $order->user->name . ' بانهاء طلب ملئ الوقود الخاص به بسعر ' .$order->total_price,

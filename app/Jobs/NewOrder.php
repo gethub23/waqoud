@@ -27,6 +27,7 @@ class NewOrder implements ShouldQueue
     {
         $this->data = [
             'sender'        => auth('worker')->id()    ,
+            'sender_type'   => 'worker'    ,
             'title_ar'      => 'طلب ملئ وقود'    ,
             'title_en'      => 'fuel fill request',
             'message_ar'    => 'لديك طلب ملئ وقود جديد من بنزينة  ' . $order->station->name,

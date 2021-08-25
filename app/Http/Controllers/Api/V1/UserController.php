@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Interfaces\IUser;
 use App\Http\Resources\Api\UserResource;
-use App\Http\Resources\NotificationsResource;
+use App\Http\Resources\Api\NotificationsResource;
 use App\Http\Requests\Api\User\EditProfileRequest;
 use App\Http\Requests\Api\User\updatePhoneRequest;
 use App\Http\Requests\Api\User\EditPasswordRequest;
@@ -54,9 +54,6 @@ class UserController extends Controller
         $this->response('fail' , __('auth.code_invalid'));
     }
 
-
-
-
     public function changeNotifyStatue()
     {
         $user = auth()->user() ; 
@@ -68,7 +65,7 @@ class UserController extends Controller
     public function notifications()
     {
         auth()->user()->unreadNotifications->markAsRead();
-        return NotificationsResource::collection(auth()->user()->notifications) ;
+        $this->response('success' , '' , NotificationsResource::collection(auth()->user()->notifications)) ;
     }
 
     public function countNotifications()

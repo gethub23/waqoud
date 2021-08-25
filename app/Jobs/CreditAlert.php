@@ -21,6 +21,7 @@ class CreditAlert implements ShouldQueue
     {
         $this->data = [
             'sender'        => auth('worker')->id()    ,
+            'sender_type'   => 'worker'    ,
             'title_ar'      => 'فشل طلب ملئ الوقود'    ,
             'title_en'      => 'fuel fill request fail',
             'message_ar'    => 'فشلت عملية ملئ الوقود حاليا بسبب عدم توفر رصيد كافي بحسابك لدينا برجاء اعاده الشحن',

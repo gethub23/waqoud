@@ -21,6 +21,7 @@ class SubscribeAlert implements ShouldQueue
     {
         $this->data = [
             'sender'        => auth('worker')->id()    ,
+            'sender_type'   => 'worker'    ,
             'title_ar'      => 'فشل طلب ملئ الوقود'    ,
             'title_en'      => 'fuel fill request fail',
             'message_ar'    => 'فشلت عملية ملئ الوقود حاليا بسبب عدم دفع قيمة الباقة السنويه الرجاء سداد قيمة الباقة',

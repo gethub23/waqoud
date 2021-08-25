@@ -28,7 +28,8 @@ class AcceptTransfer implements ShouldQueue
     {
         if ($transfer->type == 'year') {
             $this->data = [
-                'sender'        => auth('worker')->id()    ,
+                'sender'        => null    ,
+                'sender_type'   => 'user'    ,
                 'title_ar'      => 'قبول حوالة بنكية'    ,
                 'title_en'      => 'Bank Transfer Accept',
                 'message_ar'    => 'تم قبول حوالة الاشتراك لدي التطبيق بقيمة  ' . $transfer->amount,
@@ -37,7 +38,8 @@ class AcceptTransfer implements ShouldQueue
             ];
         }else{
             $this->data = [
-                'sender'        => auth('worker')->id()    ,
+                'sender'        => null    ,
+                'sender_type'   => 'user'    ,
                 'title_ar'      => 'قبول حوالة بنكية'    ,
                 'title_en'      => 'Bank Transfer Accept',
                 'message_ar'    => 'تم قبول حوالة الشحن لدي التطبيق بقيمة  ' . $transfer->amount,
