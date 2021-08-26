@@ -16,13 +16,16 @@ class ComplaintController extends Controller
     }
 
     /***************************  get all   **************************/
-    public function index()
+    public function WorkerIndex()
     {
-        $rows = $this->Repo->get();
+        $rows = $this->Repo->where(['type' => 'worker']);
         return view('admin.complaints.index', compact('rows'));
     }
-
-
+    public function UserIndex()
+    {
+        $rows = $this->Repo->where(['type' => 'user']);
+        return view('admin.complaints.index', compact('rows'));
+    }
     /***************************  store  **************************/
     public function store(Store $request)
     {

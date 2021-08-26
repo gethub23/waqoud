@@ -38,7 +38,7 @@
                                             data-complaint   = '{{$row->complaint}}'
                                             data-station     = '{{$row->station->name}}'
                                             data-phone       = '{{$row->phone}}'
-                                            data-user        = '{{$row->user_id != null ?  $row->user->name : 'غير محدد'}}'
+                                            data-user        = '{{$row->type == 'user' ?  $row->user->name : $row->worker->name}}'
                                     </x-slot>
                                 </x-admin.show-button>
                                 <x-admin.delete route="{{route('admin.complaints.delete' , [$row->id])}}" />

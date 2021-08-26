@@ -18,10 +18,14 @@ class CreateComplaintsTable extends Migration
             $table->string('user_name')->nullable();
             $table->string('phone')->nullable();
             $table->longText('complaint')->nullable();
-            $table -> unsignedBigInteger( 'user_id' ) -> unsigned() -> index();
+            $table->enum('type', ['user', 'worker'])->nullable()->default('user');
+            $table -> unsignedBigInteger( 'worker_id' ) -> unsigned() -> index()->nullable();
+            $table -> foreign( 'worker_id' ) -> references( 'id' ) -> on( 'workers' )-> onDelete( 'cascade' );
+
+            $table -> unsignedBigInteger( 'user_id' ) -> unsigned() -> index()->nullable();
             $table -> foreign( 'user_id' ) -> references( 'id' ) -> on( 'users' )-> onDelete( 'cascade' );
 
-            $table -> unsignedBigInteger( 'station_id' ) -> unsigned() -> index();
+            $table -> unsignedBigInteger( 'station_id' ) -> unsigned() -> index()->nullable();
             $table -> foreign( 'station_id' ) -> references( 'id' ) -> on( 'stations' )-> onDelete( 'cascade' );
             $table->timestamps();
         });

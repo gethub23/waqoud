@@ -22,7 +22,11 @@ class ComplaintController extends Controller
 
     public function StoreComplaint(StoreComplaintRequest $Request)
     {
-        $this->complaint->store($Request->validated() + (['user_id' => auth()->id()])) ; 
+        if ($Request->type == 'user') {
+            $this->complaint->store($Request->validated() + (['user_id' => auth()->id()])) ; 
+        }else{
+            $this->complaint->store($Request->validated() + (['worker_id' => auth('worker')->id()])) ; 
+        }
         $this->response('success' , __('apis.complaint_send'));
     }
 }

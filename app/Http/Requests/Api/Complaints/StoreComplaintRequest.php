@@ -32,7 +32,8 @@ class StoreComplaintRequest extends FormRequest
             'phone'      => 'required' , 
             'key'        => 'required' , 
             'station_id' => 'required|exists:stations,id' , 
-            'complaint'  => 'required' , 
+            'complaint'  => 'required' ,
+            'type'       => 'required|in:user,worker' 
         ];
     }
 

@@ -892,14 +892,27 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], fu
         /*------------ end Of images ----------*/
 
         /*------------ start Of complaints ----------*/
-            Route::get('complaints', [
-                'uses'      => 'ComplaintController@index',
-                'as'        => 'complaints.index',
-                'title'     => 'الشكاوي',
+            Route::get('all-complaints', [
+                'as'        => 'all_complaints',
                 'icon'      => '<i class="la la-bullhorn"></i>',
+                'title'     => 'الشكاوي والمقترحات',
                 'type'      => 'parent',
-                'sub_route' => false,
-                'child'     => [ 'complaints.store', 'complaints.update', 'complaints.delete' ,'complaints.deleteAll']
+                'sub_route' => true,
+                'child'     => [
+                    'complaints.WorkerIndex','complaints.UserIndex','complaints.store', 'complaints.update', 'complaints.delete' ,'complaints.deleteAll',
+                ]
+            ]);
+            Route::get('complaints/user', [
+                'uses'      => 'ComplaintController@UserIndex',
+                'as'        => 'complaints.UserIndex',
+                'title'     => 'شكاوي المستخدمين',
+                'icon'      => '<i class="la la-bullhorn"></i>',
+            ]);
+            Route::get('complaints/worker', [
+                'uses'      => 'ComplaintController@WorkerIndex',
+                'as'        => 'complaints.WorkerIndex',
+                'title'     => 'شكاوي العمال',
+                'icon'      => '<i class="la la-bullhorn"></i>',
             ]);
 
             # complaints store
@@ -1135,15 +1148,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], fu
                 'title' => 'ارسال ايميل'
             ]);
         /*------------ end Of Settings ----------*/
-
         #new_routes_here
-                     
-                     
-                     
-                     
-                     
-                     
-                     
     });
 });
 
