@@ -53,20 +53,11 @@
     <script src="{{asset('intro_site/js/jquery-3.2.1.min.js')}}"></script>
     <script src="{{asset('intro_site/js/popper.min.js')}}"></script>
     <script src="{{asset('intro_site/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('intro_site/js/wow.min.js')}}"></script>
     <!-- plugins JS -->
     <script src="{{asset('intro_site/plugins/owl-carousel/js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('intro_site/plugins/nice-select/js/jquery.nice-select.min.js')}}"></script>
-    <script src="{{asset('intro_site/plugins/select2/js/select2.min.js')}}"></script>
-    <script src="{{asset('intro_site/plugins/fancy-box/jquery.fancybox.js')}}"></script>
-    <script src="{{asset('intro_site/plugins/datepicker/js/moments.js')}}"></script>
-    <script src="{{asset('intro_site/plugins/datepicker/js/datepicker.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- my JS -->
     <script src="{{asset('intro_site/js/main.js')}}"></script>
-    <script>
-        new WOW().init();
-    </script>
 
     <script> 
         $(document).on('submit','.send-message',function (e) {
