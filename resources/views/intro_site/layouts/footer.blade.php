@@ -46,9 +46,6 @@
     </div>
 
     <!--========================= End Loading Page =========================-->
-
-
-
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="{{asset('intro_site/js/jquery-3.2.1.min.js')}}"></script>
     <script src="{{asset('intro_site/js/popper.min.js')}}"></script>

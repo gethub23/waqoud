@@ -16,6 +16,20 @@
     @if (lang() == 'en')
         <link rel="stylesheet" href="{{asset('intro_site/css/style-ltr.css')}}">
     @endif
+
+    <meta name="description"          content="{{$settings['intro_meta_description']}}" />
+    <meta name="keywords"             content="{{$settings['intro_meta_keywords']}}" />
+
+    <meta property="fb:app_id"        content="140586622674265" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:url"           content="{{ Request::url() }}" />
+
+    <meta property="og:title"         content="{{$settings['intro_name']}}" />
+    <meta property="og:description"   content="{{$settings['intro_meta_description']}}" />
+    <meta property="og:image"         content="{{$settings['intro_logo']}}"/>
+    <meta property="og:width"         content="200"/>
+    <meta property="og:height"        content="200"/>
+
     <style>
         :root {
             --main: {{$settings['color']}};

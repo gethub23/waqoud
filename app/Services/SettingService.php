@@ -54,6 +54,8 @@ class SettingService {
            'color'                      =>$app_info['color'],
            'buttons_color'              =>$app_info['buttons_color'],
            'hover_color'                =>$app_info['hover_color'],
+           'intro_meta_description'     =>$app_info['intro_meta_description'],
+           'intro_meta_keywords'        =>$app_info['intro_meta_keywords'],
 
        ];
         return $data;
