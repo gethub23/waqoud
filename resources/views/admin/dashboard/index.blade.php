@@ -2,7 +2,7 @@
 @section('content')
     <section class="content">
         <div class="row">
-            @foreach(menu() as $menu)
+            @foreach($menus as $menu)
                 <a href="{{$menu['url']}}" class="col-xl-3 col-lg-6 col-12 mb-2" >
                     <div class="card homeCard" >
                         <div class="card-content">

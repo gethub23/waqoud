@@ -1010,16 +1010,16 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], fu
         //     ]);
         // /*------------ end Of seos ----------*/
 
-        /*------------ start Of statistics ----------*/
-            Route::get('statistics', [
-                'uses'      => 'StatisticsController@index',
-                'as'        => 'statistics.index',
-                'title'     => 'الاحصائيات',
-                'icon'      => '<i class="la la-bar-chart-o"></i>',
-                'type'      => 'parent',
-                'sub_route' => []
-            ]);
-        /*------------ end Of statistics ----------*/
+        // /*------------ start Of statistics ----------*/
+        //     Route::get('statistics', [
+        //         'uses'      => 'StatisticsController@index',
+        //         'as'        => 'statistics.index',
+        //         'title'     => 'الاحصائيات',
+        //         'icon'      => '<i class="la la-bar-chart-o"></i>',
+        //         'type'      => 'parent',
+        //         'sub_route' => []
+        //     ]);
+        // /*------------ end Of statistics ----------*/
 
         /*------------ start Of Roles----------*/
             Route::get('roles', [

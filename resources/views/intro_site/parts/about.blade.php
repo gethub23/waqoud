@@ -9,8 +9,8 @@
             </div>
             <div class="col-md-6">
                 <div class="img_info_JM">
-                    <img src="{{asset('storage/images/settings/'.$settings['about_image_1'])}}">
-                    <img src="{{asset('storage/images/settings/'.$settings['about_image_2'])}}">
+                    <img  loading="lazy" src="{{asset('storage/images/settings/'.$settings['about_image_1'])}}">
+                    <img  loading="lazy" src="{{asset('storage/images/settings/'.$settings['about_image_2'])}}">
                 </div>
             </div>
         </div>

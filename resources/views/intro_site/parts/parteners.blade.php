@@ -11,7 +11,7 @@
             <div class="owl-carousel owl-theme owl-brands">
                 @foreach ($parteners as $partener)
                     <div class="item">
-                        <img src="{{$partener->image}}">
+                        <img  loading="lazy"  src="{{$partener->image}}">
                     </div>
                 @endforeach
             </div>                

@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <a href="" class="mb-20">
-                        <img src="{{$settings['intro_logo']}}" class="logo_footer">
+                        <img  loading="lazy"  src="{{$settings['intro_logo']}}" class="logo_footer">
                     </a>
                     <ul class="social-m d-flex">
                         @foreach ($socials as $social)
@@ -42,7 +42,7 @@
     <!--========================== Start Loading Page ======================-->
 
     <div class="loader">
-        <img src="{{$settings['intro_loader']}}" alt="">
+        <img  loading="lazy"  src="{{$settings['intro_loader']}}" alt="">
     </div>
 
     <!--========================= End Loading Page =========================-->

@@ -9,7 +9,7 @@
                 <ul class="how_work">
                     @foreach ($howWorks as $howWork)     
                         <li>
-                            <img src="{{$howWork->image}}">
+                            <img  loading="lazy"  src="{{$howWork->image}}">
                             <div>{{$howWork->title}}</div>
                         </li>
                     @endforeach

@@ -10,7 +10,7 @@
             @foreach ($services as $service)
                 <div class="col-md-4">
                     <div class="box-servess">
-                        <img src="{{asset('intro_site/imgs/ser.png')}}">
+                        <img  loading="lazy"  src="{{asset('intro_site/imgs/ser.png')}}">
                         <h6 class="f-b">{{$service->title}}</h6>
                         <p class="grey-color">
                             {{$service->description}}

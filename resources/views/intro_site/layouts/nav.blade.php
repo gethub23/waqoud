@@ -4,7 +4,7 @@
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex justify-content-between align-items-center flex-grow-1">
-                    <a href="javascript:void(0)"><img src="{{$settings['intro_logo']}}" class="the-logo"></a>
+                    <a href="javascript:void(0)"><img  loading="lazy" src="{{$settings['intro_logo']}}" class="the-logo"></a>
                     <ul class="d-flex align-items-center justify-content-around nav_bar flex-grow-1">
                         <li><a href="" data-scroll="home">{{__('intro_site.home')}}</a></li>
                         <li><a href="" data-scroll="who_we">{{__('intro_site.who_us')}}</a></li>

@@ -32,5 +32,5 @@
     </style>
     <title>{{$settings['intro_name']}}</title>
     <!-- title logo -->
-    <link rel="icon" href="{{asset('intro_site/imgs/logo.png')}}" type="image/x-icon" />
+    <link rel="icon"  href="{{$settings['intro_logo']}}" type="image/x-icon" />
 </head>

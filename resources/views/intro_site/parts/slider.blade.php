@@ -9,7 +9,7 @@
                     </div>
                 </div>
                 <div class="img_owl_index">
-                    <img  loading="lazy" src="{{$slider->image}}">
+                    <img loading="lazy" src="{{$slider->image}}">
                 </div>
             </div>
         </div>
