@@ -50,4 +50,6 @@ return [
     'user_have_no_subscribed'  => 'العميل لم يسدد قيمة الاشتراك السنويه للتطبيق ' ,
     'order_accepted'           => 'تم قبول الطلب بنجاح' ,
     'order_finished'           => 'تم انهاء الطلب بنجاح' ,
+    'order_finished_before'    => 'تم انهاء الطلب مسبقا' ,
+    'cant_accept_order'        => 'لايمكن قبول الطلب حاليا' ,
 ];

@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\AdImage;
 
 use App\Models\PhotoAd;
+use App\Models\Station;
 use App\Models\Category;
 use App\Models\Permission;
 use App\Observers\AdObserver;
@@ -15,6 +16,7 @@ use App\Observers\BankObserver;
 use App\Observers\UserObserver;
 use App\Observers\AdImageObserver;
 use App\Observers\PhotoAdObserver;
+use App\Observers\StationObserver;
 use App\Observers\CategoryObserver;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\Interfaces\ISetting ;
@@ -37,13 +39,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-         User ::observe(UserObserver::class);
-         view()->composer('*', function ($view) 
-            {
-                // view()->share([
-                //     'permissions' => Permission::where('role_id', auth()->user()->role_id)->pluck('permission')->toArray() ,
-                // ]);
-            });            
+         User    ::observe(UserObserver::class);
+         Station ::observe(StationObserver::class);
         // -------------- lang ---------------- \\
             app()->singleton('lang', function (){
                 if ( session() -> has( 'lang' ) )

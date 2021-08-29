@@ -658,6 +658,40 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], fu
             /*------------ end Of workers ----------*/
         /*------------ end Of users Controller ----------*/
 
+        /*------------ start Of stationwallets ----------*/
+            Route::get('stationwallets', [
+                'uses'      => 'StationWalletController@index',
+                'as'        => 'stationwallets.index',
+                'title'     => 'مستحقات البنزينات',
+                'icon'      => '<i class="la la-money"></i>',
+                'type'      => 'parent',
+                'sub_route' => false,
+                'child'     => [ 'stationwallets.update', 'stationdues.index',]
+            ]);
+
+            # stationwallets update
+            Route::put('stationwallets/{id}', [
+                'uses'  => 'StationWalletController@update',
+                'as'    => 'stationwallets.update',
+                'title' => 'تسوية مستحقات'
+            ]);
+
+            /*------------ start Of stationdues ----------*/
+                Route::get('stationdues/{id}', [
+                    'uses'      => 'StationDueController@index',
+                    'as'        => 'stationdues.index',
+                    'title'     => 'العرض التفصيلي المستحقات',
+                ]);
+
+                # stationdues update
+                Route::put('stationdues/{id}', [
+                    'uses'  => 'StationDueController@update',
+                    'as'    => 'stationdues.update',
+                    'title' => 'تسوية طلب '
+                ]);
+            /*------------ end Of stationdues ----------*/
+        /*------------ end Of stationwallets ----------*/
+
         /*------------ start Of packages ----------*/
             Route::get('packages', [
                 'uses'      => 'PackageController@index',
@@ -1148,7 +1182,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], fu
                 'title' => 'ارسال ايميل'
             ]);
         /*------------ end Of Settings ----------*/
+
         #new_routes_here
+                     
+                     
     });
 });
 

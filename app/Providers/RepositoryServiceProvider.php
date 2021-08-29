@@ -58,6 +58,10 @@ use App\Repositories\Interfaces\IIntroHowWork;
 use App\Repositories\Eloquent\IntroHowWorkRepository;
 use App\Repositories\Interfaces\IIntroSocial;
 use App\Repositories\Eloquent\IntroSocialRepository;
+use App\Repositories\Interfaces\IStationWallet;
+use App\Repositories\Eloquent\StationWalletRepository;
+use App\Repositories\Interfaces\IStationDue;
+use App\Repositories\Eloquent\StationDueRepository;
 #clases_Definition_here
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -91,6 +95,8 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(IIntroMessages::class  , IntroMessagesRepository::class   );
         $this->app->bind(IIntroHowWork::class  , IntroHowWorkRepository::class   );
         $this->app->bind(IIntroSocial::class  , IntroSocialRepository::class   );
+        $this->app->bind(IStationWallet::class  , StationWalletRepository::class   );
+        $this->app->bind(IStationDue::class  , StationDueRepository::class   );
         #connect_here 
         $this->app->bind(ISeo::class                   , SeoRepository::class                  );
         $this->app->bind(IUser::class                  , UserRepository::class                 );

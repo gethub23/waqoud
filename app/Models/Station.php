@@ -76,4 +76,26 @@ class Station extends  Authenticatable
     {
         return $query->where('active' , 0 );
     }
+
+    /**
+     * Get the creditOnApp associated with the Station
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function creditOnApp()
+    {
+        return $this->hasOne(StationWallet::class, 'station_id', 'id');
+    }
+    
+    public function dues()
+    {
+        return $this->hasManyThrough(
+            StationDue::class,
+            StationWallet::class,
+            'station_id', // Foreign key on the environments table...
+            'station_wallet_id', // Foreign key on the deployments table...
+            'id', // Local key on the projects table...
+            'id' // Local key on the environments table...
+        );
+    }
 }

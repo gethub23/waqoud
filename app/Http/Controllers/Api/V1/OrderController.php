@@ -15,6 +15,7 @@ use App\Repositories\Interfaces\IFuel;
 use App\Repositories\Interfaces\IUser;
 use App\Repositories\Interfaces\IOrder;
 use App\Http\Resources\Api\OrderResource;
+use App\Repositories\Interfaces\IStation;
 use App\Http\Requests\Api\Orders\newOrderRequest;
 
 class OrderController extends Controller
@@ -24,12 +25,14 @@ class OrderController extends Controller
     protected $order;
     protected $fuel;
     protected $user;
+    protected $station;
 
-    public function __construct(IOrder $order , IFuel $fuel , IUser $user)
+    public function __construct(IOrder $order , IFuel $fuel , IUser $user, IStation $station)
     {
-        $this->order = $order;
-        $this->fuel  = $fuel;
-        $this->user  = $user;
+        $this->order    = $order;
+        $this->fuel     = $fuel;
+        $this->user     = $user;
+        $this->station  = $station;
     }
 
     public function newOrder(newOrderRequest $request)
@@ -37,7 +40,6 @@ class OrderController extends Controller
         $fuel = $this->fuel->findOrFail($request->fuel_id) ; 
         $total_price = $fuel->price * $request->liters ; 
         $this->checkUserWallet($request->user_id , $total_price) ;
-
         $order = $this->order->store($request->validated() + (
             [
                 'liter_price'  => $fuel->price , 
@@ -47,7 +49,6 @@ class OrderController extends Controller
             ]
         ));
         NewOrder::dispatch($order) ; 
-
         $this->response('success' , __('apis.order_request_success'), new OrderResource($order)) ;
     }
 
@@ -70,19 +71,27 @@ class OrderController extends Controller
         $order = $this->order->findOrfail($id) ; 
         if (auth()->id() != $order->user_id) 
             $this->response('fail' , __('auth.not_authorized'));
-            
+
+        if ($order->status != 'new') 
+            $this->response('fail' , __('apis.cant_accept_order')); 
+
         $order->update(['status' => 'accepted']) ; 
         AcceptOrder::dispatch($order) ; 
         $this->response('success' , __('apis.order_accepted'), new OrderResource($order));
     }
+
     public function finishOrder($id)
     {
         $order = $this->order->findOrfail($id) ; 
         if (auth()->id() != $order->user_id) 
             $this->response('fail' , __('auth.not_authorized'));
+
+        if ($order->status != 'accepted') 
+            $this->response('fail' , __('apis.order_finished_before'));
             
         $order->update(['status' => 'finished']) ;
         auth()->user()->wallet()->update(['charge' => DB::raw('charge - '.$order->total_price)]); 
+        $this->station->addCreditToStation($order);
         FinishOrder::dispatch($order) ; 
         $this->response('success' , __('apis.order_finished') , new OrderResource($order));
     }
