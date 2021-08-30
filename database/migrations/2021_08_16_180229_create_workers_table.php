@@ -15,7 +15,7 @@ class CreateWorkersTable extends Migration
     {
         Schema::create('workers', function (Blueprint $table) {
             $table->id();
-            $table->string('avatar');
+            $table->string('avatar')->default('default.png');
             $table->string('name');
             $table->string('key')->default('+966');
             $table->string('phone');

@@ -11,6 +11,7 @@ use App\Models\PhotoAd;
 use App\Models\Station;
 use App\Models\Category;
 use App\Models\Permission;
+use App\Models\SiteSetting;
 use App\Observers\AdObserver;
 use App\Observers\BankObserver;
 use App\Observers\UserObserver;
@@ -50,5 +51,7 @@ class AppServiceProvider extends ServiceProvider
 
             });
         // -------------- lang ---------------- \\
+
+        // view()->share('settings', SiteSetting::get());
     }
 }

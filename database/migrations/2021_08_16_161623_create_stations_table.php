@@ -17,6 +17,7 @@ class CreateStationsTable extends Migration
             $table->id();
             $table->text('avatar')->default('default.png');
             $table->string('name')->nullable();
+            $table->string('key')->default('+966');
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->string('password')->nullable();
@@ -24,6 +25,7 @@ class CreateStationsTable extends Migration
             $table->decimal('longitude', 10, 7);
             $table->string('boss_name')->nullable();
             $table->string('boss_avatar')->nullable();
+            $table->string('boss_key')->default('+966');
             $table->string('boss_phone')->nullable();
             $table->string('boss_identity')->nullable();
             $table->boolean('active')->default(false);

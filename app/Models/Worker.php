@@ -33,7 +33,7 @@ class Worker extends Authenticatable implements JWTSubject
      *
      * @var array
      */
-    protected $fillable = ['name','phone','password','identity','salary','city_id','station_id' , 'avatar','token' ,'key'];
+    protected $fillable = ['key','name','phone','password','identity','salary','city_id','station_id' , 'avatar','token' ,'key'];
 
     public function setPasswordAttribute($value)
     {

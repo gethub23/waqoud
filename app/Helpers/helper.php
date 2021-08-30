@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\App;
 use App\Models\Seo;
 use App\Models\SiteSetting;
 
+function isActiveRoute($route, $output = "act"){
+    if (Route::currentRouteName() == $route) return $output;
+}
+
 function seo($key){
     return Seo::where('key' , $key)->first() ;
 }

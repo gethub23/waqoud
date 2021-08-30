@@ -16,6 +16,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected $namespace = 'App\Http\Controllers';
     protected $siteNamespace  = 'App\Http\Controllers\Site';
+    protected $providerNamespace  = 'App\Http\Controllers\Provider';
 
 
     /**
@@ -50,8 +51,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebSiteRoutes();
 
-
-        //
+        $this->mapProviderRoutes();
     }
 
     /**
@@ -89,6 +89,14 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
             ->namespace($this->siteNamespace)
             ->group(base_path('routes/site.php'));
+    }
+
+    protected function mapProviderRoutes()
+    {
+        Route::prefix('provider')
+            ->middleware('web')
+            ->namespace($this->providerNamespace)
+            ->group(base_path('routes/provider.php'));
     }
 
 }

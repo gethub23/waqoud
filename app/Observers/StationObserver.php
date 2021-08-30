@@ -22,7 +22,7 @@ class StationObserver
     {
 
         StationWallet::create([
-            'Station_id' => $Station->id ,
+            'station_id' => $Station->id ,
         ]);      
     }
 

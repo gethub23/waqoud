@@ -5,14 +5,9 @@ use Illuminate\Support\Facades\Route;
 
 trait  routes
 {
-    function activeUrl ($url ,$type = 1 ){
+    function activeUrl ($url){
         if ( \Request::is($url)){
-            return 'color_orange';
-        }else{
-            if ($type == 2){
-                return 'color_off';
-            }
-            return 'color_wight';
+            return 'active';
         }
     }
 
@@ -28,7 +23,5 @@ trait  routes
     }
 
 
-    function isActiveRoute($route, $output = "active"){
-        if (Route::currentRouteName() == $route) return $output;
-    }
+   
 }

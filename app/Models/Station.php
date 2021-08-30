@@ -24,7 +24,7 @@ class Station extends  Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['avatar','name','phone','email','password','latitude','longitude','boss_name','boss_avatar','boss_phone','boss_identity','active','block','code','code_expire','city_id'];
+    protected $fillable = ['boss_key','avatar','name','phone','email','password','latitude','longitude','boss_name','boss_avatar','boss_phone','boss_identity','active','block','code','code_expire','city_id','key'];
 
     /**
      * Get the city that owns the Station
@@ -42,30 +42,33 @@ class Station extends  Authenticatable
         return asset('/storage/images/stations/'.$value);
     }
 
-    // public function setAvatarAttribute($value)
-    // {
-    //     if ($value != null)
-    //     {
-    //         $this->attributes['avatar'] = $this->uploadAllTyps($value, 'stations');
-    //     }
-    // }
+    public function setAvatarAttribute($value)
+    {
+        if ($value != null)
+        {
+            $this->attributes['avatar'] = $this->uploadAllTyps($value, 'stations');
+        }
+    }
 
     public function getBossAvatarAttribute($value)
     {
         return asset('/storage/images/stations/'.$value);
     }
 
-    // public function setBossAvatarAttribute($value)
-    // {
-    //     if ($value != null)
-    //     {
-    //         $this->attributes['boss_avatar'] = $this->uploadAllTyps($value, 'stations');
-    //     }
-    // }
+    public function setBossAvatarAttribute($value)
+    {
+        if ($value != null)
+        {
+            $this->attributes['boss_avatar'] = $this->uploadAllTyps($value, 'stations');
+        }
+    }
 
     public function setPasswordAttribute($value)
     {
-        $this->attributes['password'] = bcrypt($value);
+        if ($value != null)
+        {
+            $this->attributes['password'] = bcrypt($value);
+        }
     }
 
     public function scopeActive($query)
@@ -97,5 +100,25 @@ class Station extends  Authenticatable
             'id', // Local key on the projects table...
             'id' // Local key on the environments table...
         );
+    }
+
+    /**
+     * Get all of the orders for the Station
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'station_id', 'id');
+    }
+
+    /**
+     * Get all of the workers for the Station
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function workers()
+    {
+        return $this->hasMany(Worker::class, 'station_id', 'id');
     }
 }
