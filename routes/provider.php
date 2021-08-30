@@ -37,10 +37,12 @@ Route::group(['middleware' => ['web' , 'HtmlMinifier']], function () {
     });
     // guest routes
 
+    // home page
+    Route::get('/terms'           , 'HomeController@terms')->name('orders');
     // auth  routes
     Route::group(['middleware' => ['auth:station']], function () {
-        // home page
         Route::get('/dashboard'   , 'HomeController@home')->name('orders');
+        // home page
         // workers
         Route::get('/workers'     , 'workerController@workers')->name('workers');
         // add worker page
