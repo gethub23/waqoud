@@ -4,7 +4,7 @@ namespace App\Observers;
 
 use App\Models\Station;
 use App\Models\StationWallet;
-
+use File ;
 class StationObserver
 {
     /**
@@ -33,9 +33,18 @@ class StationObserver
      * @return void
      */
 
-      public function updating (Station $Station)
+    public function updating (Station $Station)
     {
-       
+        if (request()->has('avatar')) {
+            if ($Station->getRawOriginal('avatar') != 'default.png'){
+               File::delete(public_path('/storage/images/stations/' . $Station->getRawOriginal('avatar')));
+            }
+       }
+       if (request()->has('boss_avatar')) {
+            if ($Station->getRawOriginal('boss_avatar') != 'default.png'){
+                    File::delete(public_path('/storage/images/stations/' . $Station->getRawOriginal('boss_avatar')));
+            }
+        }
     }
     public function updated(Station $Station)
     {
@@ -50,7 +59,12 @@ class StationObserver
      */
     public function deleted(Station $Station)
     {
-        
+        if ($Station->avatar != 'default.png'){
+            File::delete(public_path('/storage/images/stations/' . $Station->getRawOriginal('avatar')));
+        }
+        if ($Station->boss_avatar != 'default.png'){
+            File::delete(public_path('/storage/images/stations/' . $Station->getRawOriginal('boss_avatar')));
+        }
     }
 
     /**

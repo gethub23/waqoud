@@ -40,7 +40,7 @@ class UserObserver
     {
        if (request()->has('avatar')) {
              if ($user->getRawOriginal('avatar') != 'default.png'){
-                File::delete('/storage/images/users/' . $user->getRawOriginal('avatar'));
+                File::delete(public_path('/storage/images/users/' . $user->getRawOriginal('avatar')));
              }
         }
     }
@@ -58,7 +58,7 @@ class UserObserver
     public function deleted(User $user)
     {
         if ($user->avatar != 'default.png'){
-            File::delete('public/storage/images/users/' . $user->avatar);
+            File::delete(public_path('/storage/images/users/' . $user->getRawOriginal('avatar')));
         }
         
     }

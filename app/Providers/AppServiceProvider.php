@@ -2,25 +2,27 @@
 
 namespace App\Providers;
 
-use App\Models\Ad;
 use App\Models\Bank;
 use App\Models\User;
-use App\Models\AdImage;
+use App\Models\Image;
 
-use App\Models\PhotoAd;
+use App\Models\Intro;
+use App\Models\Social;
+use App\Models\Worker;
+
 use App\Models\Station;
-use App\Models\Category;
-use App\Models\Permission;
-use App\Models\SiteSetting;
-use App\Observers\AdObserver;
+use App\Models\IntroSlider;
+use App\Models\IntroHowWork;
 use App\Observers\BankObserver;
 use App\Observers\UserObserver;
-use App\Observers\AdImageObserver;
-use App\Observers\PhotoAdObserver;
+use App\Observers\ImageObserver;
+use App\Observers\IntroObserver;
+use App\Observers\SocialObserver;
+use App\Observers\WorkerObserver;
 use App\Observers\StationObserver;
-use App\Observers\CategoryObserver;
+use App\Observers\IntroSliderObserver;
+use App\Observers\IntroHowWorkObserver;
 use Illuminate\Support\ServiceProvider;
-use App\Repositories\Interfaces\ISetting ;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -40,8 +42,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-         User    ::observe(UserObserver::class);
-         Station ::observe(StationObserver::class);
+         User           ::observe(UserObserver::class);
+         Station        ::observe(StationObserver::class);
+         Bank           ::observe(BankObserver::class);
+         Image          ::observe(ImageObserver::class);
+         Intro          ::observe(IntroObserver::class);
+         Social         ::observe(SocialObserver::class);
+         IntroHowWork   ::observe(IntroHowWorkObserver::class);
+         Worker         ::observe(WorkerObserver::class);
+         IntroSlider    ::observe(IntroSliderObserver::class);
         // -------------- lang ---------------- \\
             app()->singleton('lang', function (){
                 if ( session() -> has( 'lang' ) )
@@ -52,6 +61,5 @@ class AppServiceProvider extends ServiceProvider
             });
         // -------------- lang ---------------- \\
 
-        // view()->share('settings', SiteSetting::get());
     }
 }
