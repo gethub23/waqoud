@@ -39,8 +39,8 @@ class UserObserver
       public function updating (User $user)
     {
        if (request()->has('avatar')) {
-             if ($user->getOriginal('avatar') != 'default.png'){
-                File::delete('public/storage/images/users/' . $user->getOriginal('avatar'));
+             if ($user->getRawOriginal('avatar') != 'default.png'){
+                File::delete('/storage/images/users/' . $user->getRawOriginal('avatar'));
              }
         }
     }
