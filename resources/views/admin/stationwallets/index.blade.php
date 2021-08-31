@@ -11,6 +11,7 @@
                     <th>{{awtTrans('اسم البنزينة')}}</th>
                     <th>{{awtTrans('المبلغ المستحق')}}</th>
                     <th>{{awtTrans('عرض تفاصيل الطلبات')}}</th>
+                    <th>{{awtTrans('عرض الحسابات البنكيه')}}</th>
                     <th>{{awtTrans('التحكم')}}</th>
                 </x-slot>
                 <x-slot name="tableBody">
@@ -19,6 +20,7 @@
                             <td>{{$row->station->name}}</td>
                             <td>{{$row->credit}}</td>
                             <td><a href="{{url('admin/stationdues/'.$row->id)}}">{{awtTrans('عرض')}}</a></td>
+                            <td><a href="{{url('admin/stationwallets/accounts/'.$row->station_id)}}">{{awtTrans('عرض')}}</a></td>
                             <td>
                                 <div class="badge border-primary primary badge-border edit" data-toggle   ="modal" data-target   ="#editModel"
                                     data-id       = '{{$row->id}}'

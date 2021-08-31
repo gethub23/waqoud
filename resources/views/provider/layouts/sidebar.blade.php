@@ -26,6 +26,14 @@
                     </div>
                 </a>
             </li>
+            <li class="{{isActiveRoute('accounts')}}">
+                <a class="sidenav-link" href="{{url('provider/accounts')}}">
+                    <div style="width:60%;margin:auto" class="d-flex align-items-center">
+                        <i class="fas fa-dollar-sign"></i>
+                        <p class="mb-0 mr-3 ml-3">{{__('site.bank_accounts')}}</p>
+                    </div>
+                </a>
+            </li>
             <li class="{{isActiveRoute('settings')}}">
                 <a class="sidenav-link" href="{{url('provider/settings')}}">
                     <div style="width:60%;margin:auto" class="d-flex align-items-center">

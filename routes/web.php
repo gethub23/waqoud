@@ -666,9 +666,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], fu
                 'icon'      => '<i class="la la-money"></i>',
                 'type'      => 'parent',
                 'sub_route' => false,
-                'child'     => [ 'stationwallets.update', 'stationdues.index',]
+                'child'     => [ 'stationwallets.accounts','stationwallets.update', 'stationdues.index',]
             ]);
 
+            # stationwallets update
+            Route::get('stationwallets/accounts/{id}', [
+                'uses'  => 'StationWalletController@accounts',
+                'as'    => 'stationwallets.accounts',
+                'title' => 'الحسابات البنكيه'
+            ]);
             # stationwallets update
             Route::put('stationwallets/{id}', [
                 'uses'  => 'StationWalletController@update',

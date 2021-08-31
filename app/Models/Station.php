@@ -121,4 +121,14 @@ class Station extends  Authenticatable
     {
         return $this->hasMany(Worker::class, 'station_id', 'id');
     }
+
+    /**
+     * Get all of the accounts for the Station
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function accounts()
+    {
+        return $this->hasMany(StationAccount::class, 'station_id', 'id');
+    }
 }

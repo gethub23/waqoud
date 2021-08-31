@@ -43,6 +43,18 @@ Route::group(['middleware' => ['web' , 'HtmlMinifier']], function () {
     Route::group(['middleware' => ['auth:station']], function () {
         Route::get('/dashboard'   , 'HomeController@home')->name('orders');
         // home page
+        // accounts
+        Route::get('/accounts'    , 'accountController@accounts')->name('accounts');
+        // add-account page
+        Route::get('/add-account' , 'accountController@addAccountPage')->name('addAccountPage');
+        // add-account
+        Route::post('/add-account' , 'accountController@addAccount')->name('addAccount');
+        // edit-account
+        Route::get('/edit-account/{id}' , 'accountController@editAccountPage')->name('editAccountPage');
+        // edit-account
+        Route::post('/edit-account/{id}', 'accountController@editAccount')->name('editAccount');
+        // delete-account
+        Route::get('/delete-account/{id}', 'accountController@deleteAccount')->name('deleteAccount');
         // workers
         Route::get('/workers'     , 'workerController@workers')->name('workers');
         // add worker page
