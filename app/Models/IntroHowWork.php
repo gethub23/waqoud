@@ -29,11 +29,11 @@ class IntroHowWork extends Model
         return asset('/storage/images/how_works/'.$value);
     }
 
-    // public function setImageAttribute($value)
-    // {
-    //     if ($value != null)
-    //     {
-    //         $this->attributes['image'] = $this->uploadAllTyps($value, 'how_works');
-    //     }
-    // }
+    public function setImageAttribute($value)
+    {
+        if ($value != null)
+        {
+            $this->attributes['image'] = $this->uploadAllTyps($value, 'how_works');
+        }
+    }
 }

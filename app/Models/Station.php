@@ -42,26 +42,26 @@ class Station extends  Authenticatable
         return asset('/storage/images/stations/'.$value);
     }
 
-    // public function setAvatarAttribute($value)
-    // {
-    //     if ($value != null)
-    //     {
-    //         $this->attributes['avatar'] = $this->uploadAllTyps($value, 'stations');
-    //     }
-    // }
+    public function setAvatarAttribute($value)
+    {
+        if ($value != null)
+        {
+            $this->attributes['avatar'] = $this->uploadAllTyps($value, 'stations');
+        }
+    }
 
     public function getBossAvatarAttribute($value)
     {
         return asset('/storage/images/stations/'.$value);
     }
 
-    // public function setBossAvatarAttribute($value)
-    // {
-    //     if ($value != null)
-    //     {
-    //         $this->attributes['boss_avatar'] = $this->uploadAllTyps($value, 'stations');
-    //     }
-    // }
+    public function setBossAvatarAttribute($value)
+    {
+        if ($value != null)
+        {
+            $this->attributes['boss_avatar'] = $this->uploadAllTyps($value, 'stations');
+        }
+    }
 
     public function setPasswordAttribute($value)
     {

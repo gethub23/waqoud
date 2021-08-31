@@ -45,13 +45,13 @@ class Worker extends Authenticatable implements JWTSubject
         return asset('/storage/images/workers/'.$value);
     }
 
-    // public function setAvatarAttribute($value)
-    // {
-    //     if ($value != null)
-    //     {
-    //         $this->attributes['avatar'] = $this->uploadAllTyps($value, 'workers');
-    //     }
-    // }
+    public function setAvatarAttribute($value)
+    {
+        if ($value != null)
+        {
+            $this->attributes['avatar'] = $this->uploadAllTyps($value, 'workers');
+        }
+    }
 
     public function getBossAvatarAttribute($value)
     {

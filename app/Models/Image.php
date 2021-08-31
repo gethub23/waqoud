@@ -20,11 +20,11 @@ class Image extends Model
         return asset('/storage/images/sliders/'.$value);
     }
 
-    // public function setImageAttribute($value)
-    // {
-    //     if ($value != null)
-    //     {
-    //         $this->attributes['image'] = $this->uploadAllTyps($value, 'sliders');
-    //     }
-    // }
+    public function setImageAttribute($value)
+    {
+        if ($value != null)
+        {
+            $this->attributes['image'] = $this->uploadAllTyps($value, 'sliders');
+        }
+    }
 }

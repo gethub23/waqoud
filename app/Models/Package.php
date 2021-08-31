@@ -30,11 +30,11 @@ class Package extends Model
         return asset('/storage/images/packages/'.$value);
     }
 
-    // public function setImageAttribute($value)
-    // {
-    //     if ($value != null)
-    //     {
-    //         $this->attributes['image'] = $this->uploadAllTyps($value, 'packages');
-    //     }
-    // }
+    public function setImageAttribute($value)
+    {
+        if ($value != null)
+        {
+            $this->attributes['image'] = $this->uploadAllTyps($value, 'packages');
+        }
+    }
 }

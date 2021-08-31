@@ -20,11 +20,11 @@ class IntroPartener extends Model
         return asset('/storage/images/parteners/'.$value);
     }
 
-    // public function setImageAttribute($value)
-    // {
-    //     if ($value != null)
-    //     {
-    //         $this->attributes['image'] = $this->uploadAllTyps($value, 'parteners');
-    //     }
-    // }
+    public function setImageAttribute($value)
+    {
+        if ($value != null)
+        {
+            $this->attributes['image'] = $this->uploadAllTyps($value, 'parteners');
+        }
+    }
 }

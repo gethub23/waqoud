@@ -20,11 +20,11 @@ class Social extends Model
         return asset('/storage/images/socials/'.$value);
     }
 
-    // public function setIconAttribute($value)
-    // {
-    //     if ($value != null)
-    //     {
-    //         $this->attributes['icon'] = $this->uploadAllTyps($value, 'socials');
-    //     }
-    // }
+    public function setIconAttribute($value)
+    {
+        if ($value != null)
+        {
+            $this->attributes['icon'] = $this->uploadAllTyps($value, 'socials');
+        }
+    }
 }

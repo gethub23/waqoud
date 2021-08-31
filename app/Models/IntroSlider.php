@@ -30,11 +30,11 @@ class IntroSlider extends Model
         return asset('/storage/images/intro_sliders/'.$value);
     }
 
-    // public function setImageAttribute($value)
-    // {
-    //     if ($value != null)
-    //     {
-    //         $this->attributes['image'] = $this->uploadAllTyps($value, 'intro_sliders');
-    //     }
-    // }
+    public function setImageAttribute($value)
+    {
+        if ($value != null)
+        {
+            $this->attributes['image'] = $this->uploadAllTyps($value, 'intro_sliders');
+        }
+    }
 }

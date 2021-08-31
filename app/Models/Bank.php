@@ -29,12 +29,12 @@ class Bank extends Model
         return asset('/storage/images/banks/'.$value);
     }
 
-    // public function setIconAttribute($value)
-    // {
-    //     if ($value != null)
-    //     {
-    //         $this->attributes['icon'] = $this->uploadAllTyps($value, 'banks');
-    //     }
-    // }
+    public function setIconAttribute($value)
+    {
+        if ($value != null)
+        {
+            $this->attributes['icon'] = $this->uploadAllTyps($value, 'banks');
+        }
+    }
     
 }
